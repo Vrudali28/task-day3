@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>printing name,region,subregion,populations</title>
+</head>
+<body>
+    
+
+    <script>
+var TODORequest = new XMLHttpRequest();
+TODORequest.open("GET", "https://restcountries.com/v3.1/all");
+TODORequest.addEventListener('load', function (){
+  //console.log(this.response)
+  iterate(JSON.parse(this.response))
+});
+
+TODORequest.send()
+console.log(TODORequest)
+
+function iterate(data = []) {
+  for (var x = 0; x < data.length; x++) {
+    console.log(data[x].name,data[x].region,data[x].subregion,data[x].populations);
+  }
+}
+    </script>
+</body>
+</html>
